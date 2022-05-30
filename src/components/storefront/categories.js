@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 const SideContainer = styled.div`
   width: 20vw;
   height: 100%;
-  background-color: rgb(9, 200, 195);
+  background-color: rgb(25, 118, 210);
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
   color: #fefefa;
   min-height: 75vh;
@@ -22,12 +22,12 @@ const TabsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(9, 200, 195);
+  background-color: rgb(25, 118, 210);
   height: 89.7vh;
 `;
 
 const TabName = styled.div`
-  background-color: rgb(9, 200, 195);
+  background-color: rgb(25, 118, 210);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,7 +37,7 @@ const TabName = styled.div`
 `;
 
 const SubTabs = styled.div`
-  background-color: rgb(9, 200, 195);
+  background-color: rgb(25, 118, 210);
   width: 20vw;
   margin: 0 auto;
   font-size: 1.25rem;
@@ -46,13 +46,13 @@ const SubTabs = styled.div`
   cursor: pointer;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   &.active {
-    background-color: rgb(9, 175, 175);
+    background-color: rgb(9 75 175);
     border-left: 10px solid #fefefe;
   }
 `;
 
 const Footer = styled.footer`
-  background-color: rgb(9, 200, 195);
+  background-color: rgb(25, 118, 210);
   padding: 0.2rem;
   margin-top: auto;
 `;
