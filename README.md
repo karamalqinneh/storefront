@@ -11,3 +11,13 @@ An online storefront that will allow our users to browse our product offerings b
 ### UML
 
 ![UML](./public/assets/uml.jpg)
+
+## Phase two
+
+[PR Link](https://github.com/karamalqinneh/storefront/pull/2)
+
+[Deployed Version](https://storefront-karam.netlify.app/)
+
+### UML
+
+![UML](./public/assets/uml-phase-2.jpg)
