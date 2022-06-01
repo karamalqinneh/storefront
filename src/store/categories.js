@@ -1,30 +1,27 @@
-let initialState = { category: "all" };
+let initialState = "all";
 
 // basically this is our reducer
 const categoriesReducer = (state = initialState, action) => {
   let { type } = action;
-  let category;
 
   switch (type) {
     case "electronics":
-      category = "electronics";
-      return category;
+      state = "electronics";
+      return state;
     case "all":
-      category = "all";
-      return category;
+      state = "all";
+      return state;
     case "jewelery":
-      category = "jewelery";
-      return category;
+      state = "jewelery";
+      return state;
     case "men's clothing":
-      category = "men%27s%20clothing";
-      return category;
+      state = "men's clothing";
+      return state;
     case "women's clothing":
-      category = "women%27s%20clothing";
-      return category;
-
+      state = "women's clothing";
+      return state;
     default:
-      category = "electronics";
-      return category;
+      return state;
   }
 };
 
