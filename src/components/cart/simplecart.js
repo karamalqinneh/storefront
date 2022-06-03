@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import { removeItem } from "../../store/cart";
+import { increaseStock } from "../../store/products";
 
 const Item = styled.div`
   display: flex;
@@ -23,13 +24,14 @@ const Circle = styled.div`
 `;
 
 const Cart = (props) => {
-  let items = props.cart.items.map((ele) => {
+  let items = props.cart.items.map((ele, idx) => {
     return (
       <Item>
         <p>{ele.title}</p>
         <Circle
           onClick={() => {
-            props.remove(ele);
+            props.remove(idx);
+            props.increase(ele);
           }}
         >
           X
@@ -56,6 +58,9 @@ const Cart = (props) => {
 const mapDispatchToProps = (dispatch) => ({
   remove: (item) => {
     dispatch(removeItem(item));
+  },
+  increase: (item) => {
+    dispatch(increaseStock(item));
   },
 });
 

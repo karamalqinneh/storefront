@@ -50,7 +50,7 @@ const Products = (props) => {
           <h4>{ele.title.slice(0, 20)}</h4>
         </CardContent>
         <CardActions>
-          <Button
+          {ele.stock == 0 ? <p>Out of Stock</p> :<Button
             size="small"
             onClick={() => {
               props.add(ele);
@@ -58,7 +58,7 @@ const Products = (props) => {
             }}
           >
             Add to Cart
-          </Button>
+          </Button>}
           <Button size="small">{ele.stock}</Button>
         </CardActions>
       </Card>

@@ -25,6 +25,14 @@ const productsReducer = (state = initialState, action) => {
       });
 
       return removeState;
+    case "edit":
+      let editState = data.map((ele) => {
+        if (payload.id == ele.id) {
+          ele.stock += 1;
+        }
+        return ele;
+      });
+      return editState;
     default:
       return state;
   }
@@ -39,6 +47,13 @@ export const removeFromStock = (item) => {
 export const addToStock = (item) => {
   return {
     type: "remove",
+    payload: item,
+  };
+};
+
+export const increaseStock = (item) => {
+  return {
+    type: "edit",
     payload: item,
   };
 };

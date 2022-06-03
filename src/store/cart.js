@@ -10,7 +10,9 @@ const addReducer = (state = initialState, action) => {
       state.count += 1;
       return state;
     case "remove":
-      let filtered = state.items.filter((ele) => ele.id !== payload.id);
+      let filtered = state.items.filter((ele, idx) => {
+        return idx !== payload;
+      });
       let count = (state.count -= 1);
       return {
         items: filtered,
