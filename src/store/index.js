@@ -1,7 +1,8 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 
 // This dependency enables the Redux Dev Tools in your Chrome Console.
 import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
 
 import categoriesReducer from "./categories";
 import cartReducer from "./cart";
@@ -18,7 +19,7 @@ let reducers = combineReducers({
 });
 
 const store = () => {
-  return createStore(reducers, composeWithDevTools());
+  return createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 };
 
 export default store();

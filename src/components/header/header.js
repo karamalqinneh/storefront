@@ -63,7 +63,7 @@ function Header(props) {
             </Typography>
             <div onClick={handleShow}>
               <Img src={cartImage} />
-              <Circle>{count}</Circle>
+              <Circle>{count < 0 ? 0 : count}</Circle>
             </div>
           </Toolbar>
         </AppBar>

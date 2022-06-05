@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import { removeItem } from "../../store/cart";
-import { increaseStock } from "../../store/products";
+import { removeFromCart } from "../../store/products";
 
 const Item = styled.div`
   display: flex;
@@ -60,7 +60,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(removeItem(item));
   },
   increase: (item) => {
-    dispatch(increaseStock(item));
+    dispatch(removeFromCart(item));
   },
 });
 

@@ -10,30 +10,23 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 
 import { addItem } from "../../store/cart";
-import { removeFromStock } from "../../store/products";
+import {
+  removeFromStock,
+  getRemoteData,
+  getAction,
+} from "../../store/products";
 
 const Products = (props) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    props.get();
+  }, []);
+  useEffect(() => {
     setIsLoading(true);
-    // const fetchData = async () => {
-    //   if (props.category == "all") {
-    //     let response = await axios.get(
-    //       `https://fakestoreapi.com/products?limit=5`
-    //     );
-    //     setProducts(response.data);
-    //   } else {
-    //     let response = await axios.get(
-    //       `https://fakestoreapi.com/products/category/${props.category}`
-    //     );
-    //     setProducts(response.data);
-    //   }
-    // };
-    // fetchData();
     if (props.category == "all") {
       let response = props.products;
-      setProducts(response.slice(0, 7));
+      setProducts(response.slice(0, 6));
     } else {
       let response = props.products.filter((ele) => {
         return ele.category === props.category;
@@ -50,15 +43,19 @@ const Products = (props) => {
           <h4>{ele.title.slice(0, 20)}</h4>
         </CardContent>
         <CardActions>
-          {ele.stock == 0 ? <p>Out of Stock</p> :<Button
-            size="small"
-            onClick={() => {
-              props.add(ele);
-              props.removeStock(ele);
-            }}
-          >
-            Add to Cart
-          </Button>}
+          {ele.stock == 0 ? (
+            <p>Out of Stock</p>
+          ) : (
+            <Button
+              size="small"
+              onClick={() => {
+                props.add(ele);
+                props.removeStock(ele);
+              }}
+            >
+              Add to Cart
+            </Button>
+          )}
           <Button size="small">{ele.stock}</Button>
         </CardActions>
       </Card>
@@ -90,6 +87,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   removeStock: (item) => {
     dispatch(removeFromStock(item));
+  },
+  get: () => {
+    dispatch(getRemoteData());
+  },
+  getAction: () => {
+    dispatch(getAction());
   },
 });
 
